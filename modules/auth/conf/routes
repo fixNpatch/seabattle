@@ -1,0 +1,2 @@
+GET             /auth               CAuth.Index
+POST            /auth               CAuth.CheckAuth

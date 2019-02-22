@@ -1,0 +1,30 @@
+{
+  "name": "seabattle",
+  "version": "1.0.0",
+  "description": "The Game",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "watch": "webpack --watch"
+  },
+  "keywords": [
+    "sea",
+    "seabattle",
+    "game",
+    "battle"
+  ],
+  "author": "fixNpatch",
+  "license": "ISC",
+  "dependencies": {
+    "webpack-cli": "^3.2.3",
+    "webpack": "^4.29.5",
+    "webix": "^6.2.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.2.3",
+    "webpack": "^4.29.5",
+    "webix": "^6.2.0"
+  }
+}
