@@ -1,3 +1,4 @@
+import "webix"
 
 let render = function() {
     webix.ui({
@@ -28,6 +29,7 @@ let render = function() {
             }
         ]
     });
+
     console.log("it's all good")
 
 };
