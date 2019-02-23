@@ -1,18 +1,13 @@
 const path = require('path');
 
+
 module.exports = {
     entry: './public/js/index.ts',
 
     mode: "development",
     devtool: "inline-source-map",
 
-    resolve: {
-        extensions: ['.js', '.ts'],
-        modules: ['./', 'node_modules'],
-        alias: {
-            "webix/debug": path.resolve(__dirname, "./node_modules/webix/webix_debug")
-        }
-    },
+
     module: {
         rules: [
             {
@@ -25,6 +20,7 @@ module.exports = {
                 test: /\.tsx?$/,
                 loader: 'ts-loader',
                 options: {onlyCompileBundledFiles: true},
+                exclude: /node_modules/
             },
             {
                 test: /\.(css|less)?$/,
@@ -36,6 +32,15 @@ module.exports = {
             },
         ]
     },
+
+    resolve: {
+        extensions: ['.ts', '.js'],
+        modules: ['./', 'node_modules'],
+        alias: {
+            "webix": path.resolve(__dirname, "./node_modules/webix"),
+        }
+    },
+
 
     output: {
         filename: 'main.js',

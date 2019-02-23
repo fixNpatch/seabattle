@@ -20,6 +20,7 @@
   "dependencies": {
     "@types/jquery": "3.3.29",
     "@types/node": "10.12.0",
+    "@types/webix": "^5.1.1",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.5",
     "babel-plugin-transform-runtime": "6.23.0",
@@ -47,6 +48,7 @@
   "devDependencies": {
     "@types/jquery": "3.3.29",
     "@types/node": "10.12.0",
+    "@types/webix": "^5.1.1",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.5",
     "babel-plugin-transform-runtime": "6.23.0",

@@ -1,37 +1,36 @@
-import "webix"
+import CAuth from "../../modules/auth/public/js/cauth/cauth";
+import "webix/webix.min.css"
+import * as webix from "webix";
+
+class App {
+
+	private Components: any
+	private Handler: any
+	
+	
+	public init(){
+		this.Components = {
+			Auth: new CAuth()
+		}
+
+		// init components
+		for(let component in this.Components){
+			this.Components[component].init()
+		}
+
+		// init views
+		for(let component in this.Components){
+			webix.ui(this.Components[component].config())
+		}
+		
+	}
+}
+
 
 let render = function() {
-    webix.ui({
-        container: "form-place",
-        view: "form",
-        id: "login_form",
-        width: 600,
-        elements: [
-            {view: "text", name: "login", label: "Login"},
-            {view: "text", name: "password", type: "password", label: "Password"},
-            {
-                cols: [
-                    {
-                        view: "button",
-                        value: "Login",
-                        type: "form",
-                        on:{
-                           "onItemClick": function () {
-                               let data = JSON.stringify($$("login_form").getValues());
-                               webix.ajax().post("/auth", data, function () {
-                                   webix.message("success");
-                               })
-                           }
-                        },
-                    },
-                    {view: "button", value: "Cancel"}
-                ]
-            }
-        ]
-    });
-
+    let app = new App()
+    app.init()
     console.log("it's all good")
-
 };
 
 

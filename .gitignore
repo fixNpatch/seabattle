@@ -2,4 +2,8 @@ test-results/
 tmp/
 routes/
 node_modules/
-
+public/js/*.ttf
+public/js/*.woff
+public/js/*.woff2
+public/js/*.svg
+public/js/*.eot
