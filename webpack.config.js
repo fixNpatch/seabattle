@@ -38,6 +38,7 @@ module.exports = {
         modules: ['./', 'node_modules'],
         alias: {
             "webix": path.resolve(__dirname, "./node_modules/webix"),
+            "@types": path.resolve(__dirname, "./node_modules/@types")
         }
     },
 

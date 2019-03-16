@@ -2913,7 +2913,7 @@ webix.ajax.prototype={
 		return webix.stringify(obj);
 	},
 	/*
-		send data to the server
+		sendSync data to the server
 		params - hash of properties which will be added to the url
 		call - callback, can be an array of functions
 	*/
@@ -6761,7 +6761,7 @@ webix.MouseEvents={
 		if (document.createEventObject)	//make a copy of event, will be used in timed call
 			e = document.createEventObject(event);
 		else if (!webix.$testmode && !webix.isUndefined(e.movementY) && !e.movementY && !e.movementX)
-			return; //logitech mouse driver can send false signals in Chrome
+			return; //logitech mouse driver can sendSync false signals in Chrome
 			
 			
 			
@@ -34991,7 +34991,7 @@ webix.DataProcessor = webix.proto({
 
 
 
-	/*! send dataprocessor query to server
+	/*! sendSync dataprocessor query to server
 	 *	and attach event to process result
 	 *	@param url
 	 *		server url
@@ -36552,7 +36552,7 @@ webix.UploadDriver = {
 			inputs[inputs.length-1].click();
 		},
 		send: function(id){
-			//alternative syntx send(callback)
+			//alternative syntx sendSync(callback)
 			if (typeof id == "function"){
 				this._last_assigned_upload_callback = id;
 				id = 0;

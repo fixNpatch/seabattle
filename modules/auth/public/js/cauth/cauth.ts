@@ -1,14 +1,21 @@
 import {$$} from "webix"
 import * as webix from "webix";
+import BasicComponent from "../../../../BasicComponent/BasicComponent";
+import Handler from "../../../../handler/public/handler";
 
 
-export default class CAuth {
+export default class CAuth extends BasicComponent {
+	public handler: Handler;
+	public ctx: any;
 
 	public init(){
+		this.handler = new Handler();
 		console.log("Init::Cauth")
 	}
 
 	public config():any {
+		let that = this;
+		console.log("cauth::config");
 		return {
 			container: "form-place",
 			view: "form",
@@ -25,10 +32,12 @@ export default class CAuth {
 							type: "form",
 							on:{
 								"onItemClick": function () {
-									let data = JSON.stringify(($$("login_form") as any).getValues());
-									webix.ajax().post("/auth", data, function () {
-										webix.message("success");
-									})
+									// let data = JSON.stringify(($$("login_form") as any).getValues());
+									// webix.ajax().post("/auth", data, function () {
+									// 	webix.message("success");
+									// })
+									webix.message("clicked")
+									that.fetch()
 								}
 							},
 						},
@@ -39,14 +48,24 @@ export default class CAuth {
 		}
 	}
 
-	public func(s:string):any{
-		webix.message("hello, weorl");
-		webix.ui({
-			view: "button",
-			id: "text",
-			label: "kek",
-		});
-		console.log("C_AUTH");
-		return s
+	public fetch():void{
+		let data = ($$("login_form") as any).getValues();
+		webix.message("fetched");
+		this.ctx = {
+			url: "/auth",
+			data: data
+		};
+		let possibleResponse = JSON.parse(this.handler.sendSync(this.ctx)),
+			sessionHash = possibleResponse["session_hash"];
+		console.log("-------------");
+		console.log("Session Hash:");
+		console.log(sessionHash);
+		console.log("-------------");
+		localStorage.setItem("sessionHash", sessionHash)
+		this.getAuth(localStorage.getItem("sessionHash"))
+	}
+
+	private getAuth(value:any):void {
+		return
 	}
 }

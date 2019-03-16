@@ -1,0 +1,22 @@
+package controllers
+
+import (
+	"github.com/revel/revel"
+)
+
+
+type CSession struct {
+	*revel.Controller
+}
+
+func (c *CSession) Index() revel.Result {
+	return nil
+}
+
+func (c *CSession) CheckSession() revel.Result {
+	sessionHash := c.Params.Form.Get("sessionHash")
+	if sessionHash == "123123123" {
+		c.Render("/public/")
+	}
+	return c.RenderJSON()
+}

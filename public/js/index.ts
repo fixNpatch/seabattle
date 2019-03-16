@@ -1,39 +1,11 @@
-import CAuth from "../../modules/auth/public/js/cauth/cauth";
-import "webix/webix.min.css"
-import * as webix from "webix";
-
-class App {
-
-	private Components: any
-	private Handler: any
-	
-	
-	public init(){
-		this.Components = {
-			Auth: new CAuth()
-		}
-
-		// init components
-		for(let component in this.Components){
-			this.Components[component].init()
-		}
-
-		// init views
-		for(let component in this.Components){
-			webix.ui(this.Components[component].config())
-		}
-		
-	}
-}
-
+import {App} from "../../modules/app/public/app";
 
 let render = function() {
+    console.log("App started...")
     let app = new App()
+    console.log("Initialization app...")
     app.init()
-    console.log("it's all good")
+    console.log("Alright. You can use it completely")
 };
-
-
-
 
 document.addEventListener("DOMContentLoaded", render);
