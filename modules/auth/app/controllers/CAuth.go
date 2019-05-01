@@ -13,7 +13,7 @@ type CAuth struct {
 }
 
 func (c *CAuth) Index() revel.Result {
-	return nil
+	return c.Render()
 }
 
 func (c *CAuth) CheckAuth() revel.Result {

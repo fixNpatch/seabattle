@@ -8,7 +8,7 @@ export default class CAuth extends BasicComponent {
 	public handler: Handler;
 	public ctx: any;
 
-	public init(){
+	public init():any{
 		this.handler = new Handler();
 		console.log("Init::Cauth")
 	}
@@ -32,11 +32,7 @@ export default class CAuth extends BasicComponent {
 							type: "form",
 							on:{
 								"onItemClick": function () {
-									// let data = JSON.stringify(($$("login_form") as any).getValues());
-									// webix.ajax().post("/auth", data, function () {
-									// 	webix.message("success");
-									// })
-									webix.message("clicked")
+									webix.message("clicked");
 									that.fetch()
 								}
 							},

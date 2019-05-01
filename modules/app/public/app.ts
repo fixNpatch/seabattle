@@ -1,8 +1,8 @@
-import CAuth from "../../auth/public/js/cauth/cauth";
-import Handler from "../../handler/public/handler";
 import "webix/webix.min.css"
 import * as webix from "webix";
 import BasicComponent from "../../BasicComponent/BasicComponent";
+import Handler from "../../handler/public/handler";
+import CAuth from "../../auth/public/js/cauth/cauth";
 
 
 export class App extends BasicComponent{
@@ -14,7 +14,7 @@ export class App extends BasicComponent{
 	public init(){
 		this.Handler = new Handler();
 		this.Components = {
-			Auth: new CAuth()
+			Auth: new CAuth(),
 		};
 
 		// init components
